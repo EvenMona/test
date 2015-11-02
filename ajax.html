@@ -1,0 +1,42 @@
+<!doctype html>
+ <html>
+<head>
+    <link type="text/css" href="css/style.css">
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+</body>
+
+<script>
+    $(function(){
+        var aj = $.ajax({
+            url: ' pronductManager_reverseUpdate',
+            data: {
+                selRollBack: selRollBack,
+                selOperatorsCode: selOperatorCode,
+                PROVINCECODE : PROVINDECODE,
+                pass2: pass2
+            },
+            type: 'post',
+            cach: false,
+            dataType: 'json',
+            success:function(data){
+                if(data.msg == "true"){
+                    alert("修改成功");
+                    window.location.reload();
+                }else{
+                    view(data.msg);
+                }
+            },
+            error: function(){
+                alert("异常！");
+            }
+        })
+    })
+
+
+
+
+</script>
+ </html>
